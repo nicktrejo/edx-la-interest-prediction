@@ -39,18 +39,18 @@ cp /home/nicolas/LAT-INV/COURSES_DATA/WebApp/Events_ALL/*.txt /home/nicolas/ACCO
 
 
 # Scripts de Python
-cp /home/nicolas/Documents/MasterII/TFM/Proyecto/bridging_mongo.py /home/nicolas/Documents/MasterII/TFM/Proyecto/config.yaml /home/nicolas/Documents/MasterII/TFM/Proyecto/edxevent.py /home/nicolas/ACCOMP/Scripts/Python/.
-cp /home/nicolas/Documents/MasterII/TFM/Proyecto/edxmongodbstore.py /home/nicolas/ACCOMP/Scripts/Python/storage/.
+cp /home/nicolas/Documents/MasterII/TFM/Proyecto/edx-la-interest-prediction/Scripts/Python/bridging_mongo.py /home/nicolas/Documents/MasterII/TFM/Proyecto/edx-la-interest-prediction/Scripts/Python/config.yaml /home/nicolas/Documents/MasterII/TFM/Proyecto/edx-la-interest-prediction/Scripts/Python/edxevent.py /home/nicolas/ACCOMP/Scripts/Python/.
+cp /home/nicolas/Documents/MasterII/TFM/Proyecto/edx-la-interest-prediction/Scripts/Python/storage/edxmongodbstore.py /home/nicolas/ACCOMP/Scripts/Python/storage/.
 
 
 # INITIAL
 # ls -alR /home/nicolas/ACCOMP/ > /home/nicolas/ACCOMP/original_detail.txt
 # ls -aR /home/nicolas/ACCOMP/ > /home/nicolas/ACCOMP/original_simple.txt
 
-# Backup previous Output (REVIEW NUMBER)
-mkdir /home/nicolas/ACCOMP_historic/ACCOMP13
-cp --recursive /home/nicolas/ACCOMP/Scripts /home/nicolas/ACCOMP_historic/ACCOMP13/.
-cp /home/nicolas/ACCOMP/OUTPUT* /home/nicolas/ACCOMP_historic/ACCOMP13/.
+# Backup previous Output (REVIEW NUMBER nnn)
+mkdir /home/nicolas/ACCOMP_historic/ACCOMPnnn
+cp --recursive /home/nicolas/ACCOMP/Scripts /home/nicolas/ACCOMP_historic/ACCOMPnnn/.
+cp --recursive /home/nicolas/ACCOMP/OUTPUT* /home/nicolas/ACCOMP_historic/ACCOMPnnn/.
 
 # Remove previous Output
 rm -I --verbose /home/nicolas/ACCOMP/OUTPUT*/*.csv
@@ -58,4 +58,11 @@ rm --dir /home/nicolas/ACCOMP/OUTPUT*
 rm --dir /home/nicolas/ACCOMP/REQUIRED_FILES/user_current_inactivity_days.csv
 
 # Remove previous Code
+
+
+# Connect to mondo, create backup and erase db:
+# mongo
+# > db.copyDatabase("edxmongo", "edxmongo_2020_mm_DD")
+# > use edxmongo
+# > db.dropDatabase()
 

@@ -505,6 +505,10 @@ if __name__ == '__main__':
 
         with open(file_name, 'r') as f_events:
             for line in f_events:
+                # avoid empty lines
+                if line in [None, '\n', '\r\n', '\r'], '':
+                    continue
+
                 edx_event = EdxEvent(line)
 
                 user_id = edx_event.get_user_id()
