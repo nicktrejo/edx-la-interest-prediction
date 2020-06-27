@@ -121,11 +121,11 @@ MONGO preguntar a Juan Soberon
 
 ## Pendientes al 25/07
 
-1. Conseguir código del Dash (mail a Juan S)
-1. Conseguir últimos logs
+1. ~Conseguir código del Dash (mail a Juan S)~
+1. ~Conseguir últimos logs~
 1. Agregar a todos los alumnos (verificados y *no verificados*)
-1. Agregar lectura de certified
+1. Agregar lectura de certified (*WIP*)
 1. Leer datos de la BD (Mongo)
-1. Fecha de encuensta intermedia (pedir a Sorin)
+1. Fecha de encuensta intermedia (pedir a Sorin) (*WIP*)
 1. Gráficos del notebook x semana
 
