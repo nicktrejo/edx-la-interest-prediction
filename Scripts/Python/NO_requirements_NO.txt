@@ -1,0 +1,47 @@
+# Core dependencies
+#
+
+#edx-ace
+#edx-analytics-data-api-client
+#edx-api-doc-tools
+#edx-bulk-grades                     # LMS REST API for managing bulk grading operations
+#edx-ccx-keys
+#edx-celeryutils
+#edx-completion
+#edx-django-release-util             # Release utils for the edx release pipeline
+#edx-django-sites-extensions
+#edx-django-utils
+#edx-drf-extensions
+#edx-enterprise
+#edx-milestones
+#edx-organizations
+#edx-proctoring>=2.0.1
+#edx-proctoring-proctortrack==1.0.5  # Intentionally and permanently pinned to ensure code changes are reviewed
+#edx-rest-api-client
+#edx-search
+#edx-sga
+#edx-submissions
+#edx-user-state-client
+#edx-when
+#edxval
+#event-tracking
+#Markdown                            # Convert text markup to HTML; used in capa problems, forums, and course wikis
+#mongoengine==0.10.0                 # Object-document mapper for MongoDB, used in the LMS dashboard
+#numpy                               # NumPy is the fundamental package for array computing with Python
+#openedx-calc                        # Library supporting mathematical calculations for Open edX
+pandas                              # Powerful data structures for data analysis, time series, and statistics
+#pylint                             # python code static checker
+pymongo                             # MongoDB driver
+#python-dateutil
+#python3-openid ; python_version>='3'
+#python3-saml
+PyYAML                              # YAML parser and emitter for Python
+#recommender-xblock                  # https://github.com/edx/RecommenderXBlock
+#rest-condition                      # DRF's recommendation for supporting complex permissions
+#rfc6266-parser                      # Used to generate Content-Disposition headers.
+#social-auth-core
+#pytz                                # Time zone information database
+#requests-oauthlib                   # Simplifies use of OAuth via the requests library, used for CCX and LTI
+#simplejson
+#super-csv                           # Generic CSV processor
+#unicodecsv                          # Easier support for CSV files with unicode text
