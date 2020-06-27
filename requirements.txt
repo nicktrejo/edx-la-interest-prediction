@@ -1,0 +1,7 @@
+# Core dependencies
+#
+
+pandas                              # Powerful data structures for data analysis, time series, and statistics
+pymongo                             # MongoDB driver
+PyYAML                              # YAML parser and emitter for Python
+
