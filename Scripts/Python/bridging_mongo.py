@@ -8,7 +8,7 @@ Modified by nicktrejo
 #%% First Step
 
 # CAN EXECUTE THIS FILE FORM A PYTHON CONSOLE USING
-# exec(open("/home/nicolas/Documents/MasterII/TFM/Proyecto/bridging_mongo_trejo_v1.py").read())
+# exec(open("/home/nicolas/Documents/MasterII/TFM/Proyecto/bridging_mongo.py").read())
 
 from datetime import datetime
 # import json  # JSON encoder and decoder
