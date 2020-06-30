@@ -9,7 +9,7 @@
 Thumbs.db
 
 # Added by nicktrejo
-#*.sh
+*.sh
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
