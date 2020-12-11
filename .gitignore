@@ -10,6 +10,7 @@ Thumbs.db
 
 # Added by nicktrejo
 *.sh
+config.yaml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
