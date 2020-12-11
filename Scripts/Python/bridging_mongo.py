@@ -506,7 +506,7 @@ if __name__ == '__main__':
         with open(file_name, 'r') as f_events:
             for line in f_events:
                 # avoid empty lines
-                if line in [None, '\n', '\r\n', '\r'], '':
+                if line in [None, '\n', '\r\n', '\r', '']:
                     continue
 
                 edx_event = EdxEvent(line)
@@ -560,8 +560,10 @@ if __name__ == '__main__':
                     continue
 
                 elif type_summary == 'certificate':
-                    # TODO: check if more info is needed
-                    read_data[-1]['enrollment_mode'] = edx_event.get_enrollment_mode()
+                    if edx_event.get_enrollment_mode() == 'verified':
+                        read_data[-1]['enrollment_mode'] = 'certified'  # HARDCODED to certified
+                    else:
+                        read_data[-1]['enrollment_mode'] = edx_event.get_enrollment_mode()
 
     # INFO: creation of df {from log files}
     # columns = ['user_id', 'event_type', 'type_summary', 'dt_datetime', 'video_id',
@@ -868,26 +870,33 @@ if __name__ == '__main__':
     # LAP 8	Elapsed time: 0:00:01.829443
     time_lapse = time_lapse_counter(time_lapse)
 
-    # ENROLLMENT MODE THROUGH TIME
+    # ENROLLMENT MODE THROUGH TIME:  audit >> verified >> certified
 
     mask_mode_changed = df.event_type == 'edx.course.enrollment.mode_changed'
     mask_activated = df.event_type == 'edx.course.enrollment.activated'
+    mask_certified = df.event_type == 'edx.certificate.created'
     df_enr_mode_changed = df[mask_mode_changed][['user_id', 'enrollment_mode']].copy()
     df_enr_activated = df[mask_activated][['user_id', 'enrollment_mode']].copy()
+    df_enr_certified = df[mask_certified][['user_id', 'enrollment_mode']].copy()
 
     df_enr_mode_changed['dt_date'] = df[mask_mode_changed]['dt_datetime'].dt.date
     df_enr_activated['dt_date'] = df[mask_activated]['dt_datetime'].dt.date
+    df_enr_certified['dt_date'] = df[mask_certified]['dt_datetime'].dt.date
 
     df_enr_mode_changed.sort_values(by=['user_id', 'dt_date'], inplace=True)
     df_enr_activated.sort_values(by=['user_id', 'dt_date'], inplace=True)
+    df_enr_certified.sort_values(by=['user_id', 'dt_date'], inplace=True)
 
     # Need to be previously sorted (at least by dt_date)
     df_enr_mode_changed = df_enr_mode_changed.groupby('user_id').first()
     df_enr_activated = df_enr_activated.groupby('user_id').first()
+    df_enr_certified = df_enr_certified.groupby('user_id').first()
 
-    # Join both DataFrames in one
-    df_enr = df_enr_mode_changed.append(other=df_enr_activated)
-    # del df_enr_mode_changed, df_enr_activated
+    # Join the three DataFrames in one
+    # df_enr = df_enr_mode_changed.append(other=df_enr_activated)
+    df_enr = pd.concat([df_enr_mode_changed, df_enr_activated, df_enr_certified])
+    del df_enr_mode_changed, df_enr_activated, df_enr_certified
+
     df_enr = df_enr.reset_index()
     df_enr = df_enr.groupby(['user_id', 'dt_date']).first()
     df_enr = df_enr.reindex(index=multi_index).reset_index()

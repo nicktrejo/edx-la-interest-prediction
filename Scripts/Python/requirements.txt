@@ -1,7 +1,14 @@
 # Core dependencies
 #
 
+dash
+dash_bootstrap_components
+dash_core_components
+dash_html_components
+flask
+numpy
+
 pandas                              # Powerful data structures for data analysis, time series, and statistics
 pymongo                             # MongoDB driver
 PyYAML                              # YAML parser and emitter for Python
-
+plotly

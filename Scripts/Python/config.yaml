@@ -18,7 +18,7 @@ courses:
 mongo_connection:
   host: localhost # '150.244.59.136'
   port: 27017
-  dbname: edxmongo
+  dbname: edxmongo_nico  # edxmongo
   # user: None # user
   # pwd: None # pwd
 # https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html

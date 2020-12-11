@@ -1,7 +1,15 @@
 # Core dependencies
 #
 
-pandas                              # Powerful data structures for data analysis, time series, and statistics
-pymongo                             # MongoDB driver
-PyYAML                              # YAML parser and emitter for Python
+pandas~=1.1.2
+pymongo~=3.10.1
+PyYAML~=5.1.2
 
+
+plotly~=4.9.0
+sklearn~=0.0
+scikit-learn~=0.20.0
+dash~=1.14.0
+numpy~=1.19.1
+Flask~=1.1.2
+matplotlib~=3.1.1
